@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Your Corner Advocacy — IEP Support for Parents</title>
+<meta name="description" content="BCBA-informed IEP advocacy for parents. Former special education teacher, literacy specialist, and parent of children with IEPs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1F2A24;
+    --cream:#F7F3EA;
+    --cream-2:#EFE8D8;
+    --green:#2D5C4D;
+    --green-deep:#1B3A30;
+    --gold:#A9762F;
+    --gold-soft:#C79A4E;
+    --line: rgba(31,42,36,0.14);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Spectral', serif;
+    font-weight:500;
+    line-height:1.15;
+    margin:0;
+    color:var(--green-deep);
+  }
+
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  /* ---------- corner bracket signature device ---------- */
+  .corner{
+    position:relative;
+  }
+  .corner::before, .corner::after{
+    content:"";
+    position:absolute;
+    width:26px;
+    height:26px;
+    border:2px solid var(--gold);
+    pointer-events:none;
+  }
+  .corner::before{
+    top:-10px; left:-10px;
+    border-right:none; border-bottom:none;
+  }
+  .corner::after{
+    bottom:-10px; right:-10px;
+    border-left:none; border-top:none;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(247,243,234,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+  }
+  .brand-mark{width:34px;height:34px;flex:none;}
+  .brand-name{
+    font-family:'Spectral', serif;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+    color:var(--green-deep);
+  }
+  nav.links{
+    display:flex;
+    gap:28px;
+    font-size:0.92rem;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .15s ease;
+  }
+  nav.links a:hover{border-color:var(--gold);}
+  .nav-cta{
+    display:inline-block;
+    padding:9px 18px;
+    background:var(--green);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:0.9rem;
+    border-radius:var(--radius);
+  }
+  .menu-toggle{display:none;}
+
+  @media (max-width:760px){
+    nav.links{display:none;}
+    .menu-toggle{display:inline-block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:96px 0 84px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(600px 300px at 85% 0%, rgba(45,92,77,0.08), transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .eyebrow .rule{width:28px;height:1px;background:var(--gold);display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.4rem);
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:1.05rem;
+    max-width:44ch;
+    color:var(--ink);
+  }
+  .hero-roles{
+    margin-top:10px;
+    font-size:0.98rem;
+    color:var(--green);
+    font-weight:500;
+  }
+  .btn-primary{
+    display:inline-block;
+    margin-top:34px;
+    padding:14px 30px;
+    background:var(--green);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:0.98rem;
+    letter-spacing:0.01em;
+    border-radius:var(--radius);
+    transition:background .15s ease;
+  }
+  .btn-primary:hover{background:var(--green-deep);}
+
+  /* ---------- section basics ---------- */
+  section{padding:80px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-eyebrow{
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem,3vw,2.2rem);
+  }
+
+  /* ---------- about / three seats ---------- */
+  .about{
+    background:var(--cream-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+  .seats{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .seat{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .seat:first-child{border-top:none;}
+  .seat-role{
+    font-family:'Spectral', serif;
+    font-size:1.15rem;
+    color:var(--green-deep);
+    margin-bottom:4px;
+  }
+  .seat-desc{
+    font-size:0.92rem;
+    color:rgba(31,42,36,0.75);
+  }
+  .about-copy p{
+    margin:0 0 18px;
+    font-size:1rem;
+  }
+  .about-copy p:last-child{margin-bottom:0;}
+  .about-copy .lede{
+    font-family:'Spectral', serif;
+    font-style:italic;
+    font-size:1.25rem;
+    color:var(--green-deep);
+    line-height:1.4;
+    margin-bottom:22px;
+  }
+
+  /* ---------- services ---------- */
+  .services-list{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:680px){
+    .services-list{grid-template-columns:1fr;}
+  }
+  .service{
+    background:var(--cream);
+    padding:28px 26px;
+  }
+  .service h3{
+    font-size:1.05rem;
+    margin-bottom:8px;
+    color:var(--green-deep);
+  }
+  .service p{
+    margin:0;
+    font-size:0.92rem;
+    color:rgba(31,42,36,0.75);
+  }
+
+  /* ---------- how it works ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+  }
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr; gap:36px;}
+  }
+  .step-num{
+    font-family:'Spectral', serif;
+    font-style:italic;
+    font-size:2.4rem;
+    color:var(--gold-soft);
+    line-height:1;
+    margin-bottom:14px;
+  }
+  .step h3{font-size:1.05rem; margin-bottom:8px;}
+  .step p{margin:0; font-size:0.92rem; color:rgba(31,42,36,0.75);}
+
+  /* ---------- reassurance strip ---------- */
+  .reassure{
+    background:var(--green-deep);
+    color:var(--cream);
+    padding:64px 0;
+  }
+  .reassure .wrap{
+    max-width:760px;
+    text-align:center;
+  }
+  .reassure p{
+    font-family:'Spectral', serif;
+    font-style:italic;
+    font-size:clamp(1.3rem,2.6vw,1.7rem);
+    line-height:1.45;
+    margin:0;
+    color:var(--cream);
+  }
+  .reassure .mark{
+    width:40px;height:40px;
+    margin:0 auto 24px;
+  }
+
+  /* ---------- contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+  }
+  @media (max-width:820px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  .contact-note{
+    font-size:0.95rem;
+    color:rgba(31,42,36,0.75);
+    margin-top:16px;
+  }
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  label{
+    font-size:0.85rem;
+    font-weight:500;
+    color:var(--green-deep);
+    display:block;
+    margin-bottom:6px;
+  }
+  input, textarea{
+    width:100%;
+    padding:12px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.98rem;
+    border:1px solid rgba(31,42,36,0.28);
+    background:var(--cream);
+    color:var(--ink);
+    border-radius:var(--radius);
+  }
+  textarea{resize:vertical; min-height:120px;}
+  .submit-btn{
+    align-self:flex-start;
+    padding:13px 28px;
+    background:var(--gold);
+    color:var(--cream);
+    border:none;
+    font-size:0.95rem;
+    font-family:'Work Sans', sans-serif;
+    cursor:pointer;
+    border-radius:var(--radius);
+    transition:background .15s ease;
+  }
+  .submit-btn:hover{background:var(--gold-soft);}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.85rem;
+    color:rgba(31,42,36,0.65);
+  }
+  footer a{text-decoration:none; color:inherit;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="98" fill="#2D5C4D"/>
+        <path d="M 65 65 L 65 130 Q 65 148 83 148 L 132 148"
+              stroke="#F4E4C1" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="112" cy="72" r="8" fill="#F4E4C1"/>
+      </svg>
+      <span class="brand-name">In Your Corner Advocacy</span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="rule"></span>IEP Advocacy for Parents</span>
+      <h1>You don't have to walk into that room <em>alone.</em></h1>
+      <p class="hero-sub">BCBA-informed guidance for parents navigating the IEP process — from understanding the paperwork to preparing for what's said at the table.</p>
+      <p class="hero-roles">Advocate. Former special education teacher. Parent who's been where you are.</p>
+      <a href="#contact" class="btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">About</span>
+        <h2>Every side of the table</h2>
+      </div>
+      <div class="about-grid">
+        <div class="seats">
+          <div class="seat">
+            <div class="seat-role">The Educator</div>
+            <div class="seat-desc">Years as a special education teacher, writing goals and sitting on IEP teams.</div>
+          </div>
+          <div class="seat">
+            <div class="seat-role">The Advocate</div>
+            <div class="seat-desc">A Board Certified Behavior Analyst and literacy specialist, helping families make sense of behavior plans and reading goals.</div>
+          </div>
+          <div class="seat">
+            <div class="seat-role">The Parent</div>
+            <div class="seat-desc">A parent of children with IEPs myself — hoping the team truly sees my own child, just like you are.</div>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p class="lede">I've sat on every side of the table — and I know what it feels like to walk in hoping someone is in your corner.</p>
+          <p>I'm a Board Certified Behavior Analyst (BCBA), former special education teacher, and literacy specialist. That combination means I can help you understand not just the paperwork, but the behavior plans, reading goals, and everyday decisions behind your child's IEP.</p>
+          <p>I know how overwhelming it can feel to sit across from a team of professionals while trying to advocate for your child — because I've been the parent in that seat too. I help you get there prepared and confident, even though I'm not in the room with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Services</span>
+        <h2>What support looks like</h2>
+      </div>
+      <div class="services-list">
+        <div class="service">
+          <h3>Meeting preparation &amp; coaching</h3>
+          <p>Walk in knowing what to expect, what to ask, and what to listen for.</p>
+        </div>
+        <div class="service">
+          <h3>IEP document review</h3>
+          <p>A clear read on goals, present levels, and services — in plain language.</p>
+        </div>
+        <div class="service">
+          <h3>Behavior plan guidance</h3>
+          <p>Understanding BIPs and FBAs, and whether they actually fit your child.</p>
+        </div>
+        <div class="service">
+          <h3>Literacy goal review</h3>
+          <p>A look at reading goals and interventions, and whether they're built to work.</p>
+        </div>
+        <div class="service">
+          <h3>Parental rights guidance</h3>
+          <p>Understanding what you're entitled to ask for — and how to ask for it.</p>
+        </div>
+        <div class="service">
+          <h3>Before &amp; after support</h3>
+          <p>Strategy going in, and a debrief after — so nothing gets lost between meetings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Process</span>
+        <h2>How it works</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Reach out</h3>
+          <p>Tell me a bit about your situation and what's coming up.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>We connect</h3>
+          <p>A short call to see how I can help, and what support fits best.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>You're prepared</h3>
+          <p>A clear strategy going in, and a debrief with you after the meeting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reassure">
+    <div class="wrap">
+      <svg class="mark" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="98" fill="#F4E4C1"/>
+        <path d="M 65 65 L 65 130 Q 65 148 83 148 L 132 148"
+              stroke="#1B3A30" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="112" cy="72" r="8" fill="#1B3A30"/>
+      </svg>
+      <p>As a parent of kids with IEPs myself, I know what it's like to wait for that meeting invite with your stomach in knots. You don't have to face it alone.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="section-eyebrow">Contact</span>
+          <h2>Ready to feel prepared for your next IEP meeting?</h2>
+          <p class="contact-note">Reach out below and tell me a little about what's coming up — I'll follow up to see how I can help.</p>
+        </div>
+        <form>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 In Your Corner Advocacy</span>
+    <span>IEP advocacy &amp; behavior plan guidance for parents</span>
+  </div>
+</footer>
+
+</body>
+</html>
